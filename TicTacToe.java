@@ -22,15 +22,15 @@ public class TicTacToe {
         String name="TIE";
         System.out.println("*****************************TIC-TAC-TOE*****************************");
         System.out.println();
-        System.out.println("Enter Player 1's Name");
+        System.out.print("Enter Player 1's Name : ");
         player[0]=sc.nextLine();
-        System.out.println("Enter Player 2's Name");
+        System.out.print("Enter Player 2's Name : ");
         player[1]=sc.nextLine();
-        System.out.println("Enter "+player[0]+"'s Symbol");
+        System.out.print("Enter "+player[0]+"'s Symbol : ");
         symbol[0]=sc.next().charAt(0);
-        System.out.println("Enter "+player[1]+"'s Symbol");
+        System.out.print("Enter "+player[1]+"'s Symbol : ");
         symbol[1]=sc.next().charAt(0);
-        while(choice.equalsIgnoreCase("Yes"))
+        while(choice.equalsIgnoreCase("Yes")||choice.equalsIgnoreCase("Y"))
         {
             int n=(int)(Math.random()*2);
             if(n==0)
@@ -73,17 +73,25 @@ public class TicTacToe {
                 System.out.println(player[0]+"'s Turn");
                 while(true)
                 {
-                    System.out.println("Enter the Position for your symbol "+player[0]);
-                    chi=sc.nextInt();
-                    if(ch[chi-1]==' ')
-                    {
-                        ch[chi-1]=symbol[0];
-                        break;
+                    try{  
+                        System.out.print("Enter the Position for your symbol "+player[0]+" : ");
+                        chi=sc.nextInt();
+                        if(ch[chi-1]==' ')
+                        {
+                            ch[chi-1]=symbol[0];
+                            break;
+                        }
+                        else
+                        {
+                            System.out.println("You have Entered the Wrong Place !!! Plz Enter it Again");
+                            System.out.println();
+                        }
                     }
-                    else
-                    {
-                        System.out.println("You have Entered the Wrong Place Plz!!! Enter it Again");
-                        System.out.println();
+                        catch(Exception e){
+                            System.out.println("You have Entered Wrong Character !!! Please Enter it Again.");
+                            System.out.println();
+                            sc.nextLine();
+                            continue;
                     }
                 }
                 if((ch[0]==ch[1]&&ch[1]==ch[2]&&ch[2]==symbol[0])||(ch[3]==ch[4]&&ch[4]==ch[5]&&ch[5]==symbol[0])||(ch[6]==ch[7]&&ch[7]==ch[8]&&ch[8]==symbol[0])||(ch[0]==ch[3]&&ch[3]==ch[6]&&ch[6]==symbol[0])||(ch[1]==ch[4]&&ch[4]==ch[7]&&ch[7]==symbol[0])||(ch[2]==ch[5]&&ch[5]==ch[8]&&ch[8]==symbol[0])||(ch[0]==ch[4]&&ch[4]==ch[8]&&ch[8]==symbol[0])||(ch[2]==ch[4]&&ch[4]==ch[6]&&ch[6]==symbol[0]))
@@ -104,16 +112,25 @@ public class TicTacToe {
                 System.out.println(player[1]+"'s Turn");
                 while(true)
                 {
-                    System.out.println("Enter the Position for your symbol "+player[1]);
-                    chi=sc.nextInt();
-                    if(ch[chi-1]==' ')
-                    {
-                        ch[chi-1]=symbol[1];
-                        break;
-                    }
-                    else
-                    {
-                        System.out.println("You have Entered the Wrong Place Plz!!! Enter it Again");
+                    try{
+                        System.out.print("Enter the Position for your symbol "+player[1]+ " : ");
+                        chi=sc.nextInt();
+                        if(ch[chi-1]==' ')
+                        {
+                            ch[chi-1]=symbol[1];
+                            break;
+                        }
+                        else
+                        {
+                            System.out.println("You have Entered the Wrong Place !!! Plz Enter it Again");
+                            System.out.println();
+                        }
+                        }
+                        catch(Exception e){
+                            System.out.println("You have Entered Wrong Character !!! Please Enter it Again.");
+                            System.out.println();
+                            sc.nextLine();
+                            continue;
                     }
                 }
                 if((ch[0]==ch[1]&&ch[1]==ch[2]&&ch[2]==symbol[1])||(ch[3]==ch[4]&&ch[4]==ch[5]&&ch[5]==symbol[1])||(ch[6]==ch[7]&&ch[7]==ch[8]&&ch[8]==symbol[1])||(ch[0]==ch[3]&&ch[3]==ch[6]&&ch[6]==symbol[1])||(ch[1]==ch[4]&&ch[4]==ch[7]&&ch[7]==symbol[1])||(ch[2]==ch[5]&&ch[5]==ch[8]&&ch[8]==symbol[1])||(ch[0]==ch[4]&&ch[4]==ch[8]&&ch[8]==symbol[1])||(ch[2]==ch[4]&&ch[4]==ch[6]&&ch[6]==symbol[1]))
@@ -162,8 +179,9 @@ public class TicTacToe {
         System.out.println("Draw ="+y2);
         System.out.println();
         System.out.println("Do You Want to Play it Again?");
-        System.out.println("Press 'Yes' to Continue else Press any other button to quit");
+        System.out.print("Press 'Yes' or 'Y' to Continue else Press any other button to quit : ");
         choice=br.readLine();
+        System.out.println();
     }
 
        

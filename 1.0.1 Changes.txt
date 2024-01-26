@@ -1,0 +1,2 @@
+In this 1.0.1 changes I have added Exception functionality so that the program will not get terminated because of wrong input commited by the user.
+Added Some more UI changes in the code.
